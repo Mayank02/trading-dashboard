@@ -9,7 +9,7 @@ describe("TradingView Component", () => {
     { tradeId: 2, price: "101", quantity: "0.6", time: 1627848124000 },
   ];
 
-  const renderWithContext = (component: any, trades: ITrade[]) => {
+  const renderWithContext = (component: React.ReactNode, trades: ITrade[]) => {
     return render(
       <TradingViewContext.Provider
         value={{

@@ -28,7 +28,7 @@ interface ITradingViewContextType {
 }
 
 interface ITradingViewProviderProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export const TradingViewContext = createContext({} as ITradingViewContextType);
@@ -47,8 +47,8 @@ export const TradingViewProvider = (props: ITradingViewProviderProps) => {
   const showLastTen = useCallback(() => {
     const lastTenTrades = currentTradingView.slice(-10);
     setCurrentTradingView(lastTenTrades);
-    setTrades({ ...trades, [pair]: lastTenTrades });
-  }, [currentTradingView, pair, trades]);
+    setTrades((prevTrades) => ({ ...prevTrades, [pair]: lastTenTrades }));
+  }, [currentTradingView, pair]);
 
   useEffect(() => {
     const ws = new WebSocket(`wss://stream.binance.com:9443/ws/${pair}@trade`);

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { TradingPair } from "../Context";
 import styles from "./Styles.module.css";
 
@@ -9,6 +10,17 @@ interface ViewActionsProps {
 }
 
 export const ViewActions = (props: ViewActionsProps) => {
+  const options = useMemo(
+    () => (
+      <>
+        <option value={TradingPair.BNB_BTC}>BNB/BTC</option>
+        <option value={TradingPair.ETH_BTC}>ETH/BTC</option>
+        <option value={TradingPair.LTC_BTC}>LTC/BTC</option>
+      </>
+    ),
+    []
+  );
+
   return (
     <section className={`${styles.actions} ${styles.container}`}>
       <div>
@@ -19,9 +31,7 @@ export const ViewActions = (props: ViewActionsProps) => {
           onChange={(e) => props.setPair(e.target.value)}
           value={props.pair}
         >
-          <option value={TradingPair.BNB_BTC}>BNB/BTC</option>
-          <option value={TradingPair.ETH_BTC}>ETH/BTC</option>
-          <option value={TradingPair.LTC_BTC}>LTC/BTC</option>
+          {options}
         </select>
       </div>
       <div className={styles.btnContainer}>
