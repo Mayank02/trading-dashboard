@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+# Trading View
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React application using TypeScript that connects to a WebSocket API and displays the data received from the API in real-time.
 
-## Available Scripts
+## Application consist of one page with three sections.
 
-In the project directory, you can run:
+- Header
+- Page Actions
+- Output
 
-### `npm start`
+#### - Header view have the instruction about the current trading view
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### - Page Actions is again contain three option
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Select view to switch between different trading pairs (e.g., ETH/BTC, LTC/BTC). Data will be persisted even after switching between pairs until user resets it.
+2. Option to reset the page and start looking at fresh trading data.
+3. Option to view only last 10 record. Helps when grid has larger set of data over the time.
 
-### `npm test`
+#### - Output section comes with trading data in grid. Grid include various features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Filter option on each columns
+2. Sorting on each column
+3. Pagination at the bottom of the grid with initial page size set to 10 by default can be increase by 20,50,100.
+4. Option to move through different pages
 
-### `npm run build`
+### Technical implementation
+
+Application has got the good mix of react features with typescript across all the components. Few highlights like:
+
+- React Context to store the data and pass through components
+- React useCallback, useMemo, useEffect, useState
+- Component modularization to have better readability, scalability, maintainability and testability
+
+### Folder Structure
+
+- Context.tsx to serve the business logic for getting the data and pass it to components
+- Components folder include all the components
+  - Header
+  - Trading Grid
+  - Trading View
+  - View Actions
+  - Styles
+
+### System requirement to run the application
+
+#### `npm-9.* and node-18.*`
+
+### Available Scripts
+
+To install the dependency required for the application (from the project directory):
+
+#### `npm install`
+
+In the project directory, you can run to start the application:
+
+#### `npm start`
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.\
+
+Launches the test runner in the interactive watch mode.
+
+#### `npm run test`
+
+To view the test coverage run
+
+#### `npm run test:coverage`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `npm run build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Suggestions
 
-### `npm run eject`
+1. Last 10 trade can be done in more details as it open many more functionality
+2. Would add tslint/eslint configuration
+3. Add more test at low level and boundary conditions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Output screen
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Page View](OutputScreen.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Performance Matrix of application
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Performance View](PerformanceMatrix.png)

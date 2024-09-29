@@ -1,0 +1,84 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  padding: 24px 8px;
+  background: hsl(228deg 39% 20%);
+  color: white;
+}
+
+.step {
+  flex: 1;
+  padding: 24px;
+}
+
+.step h2 {
+  margin-bottom: 1em;
+}
+
+.step label {
+  color: hsl(228deg 30% 30%);
+}
+
+.actionsBackground {
+  background: hsl(228deg 50% 92%);
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  background: hsl(228deg 50% 92%);
+}
+
+.select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 12px;
+}
+
+.select:focus {
+  border-color: #007bff;
+}
+
+.select option {
+  padding: 8px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn.primary {
+  border: none;
+  background: hsl(228deg 60% 25%);
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid hsl(228deg 60% 25%);
+  color: hsl(228deg 60% 25%);
+}
